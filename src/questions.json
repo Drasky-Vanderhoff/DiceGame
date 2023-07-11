@@ -1,0 +1,142 @@
+[
+    {
+        "q" : "¿Cuál de estas palabras empieza con la letra 'M'?",
+        "option1" : "Perro",
+        "option2" : "Manzana",
+        "option3" : "Gato",
+        "correct" : "2" 
+    },
+    {
+        "q" : "¿Cuál de estos objetos se escribe con la letra 'L'?",
+        "option1" : "Pelota",
+        "option2" : "Libro",
+        "option3" : "Martillo",
+        "correct" : "2" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras termina con la letra 'O'?",
+        "option1" : "Casa",
+        "option2" : "Sol",
+        "option3" : "Perro",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras tiene la letra 'E' en medio?",
+        "option1" : "Pelota",
+        "option2" : "Lápiz",
+        "option3" : "Gato",
+        "correct" : "1" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras se escribe con la letra 'P' al principio?",
+        "option1" : "Plátano",
+        "option2" : "Ratón",
+        "option3" : "Flor",
+        "correct" : "1" 
+    },
+    {
+        "q" : "¿Cuál de estos animales se escribe con la letra 'G'?",
+        "option1" : "Pez",
+        "option2" : "Ratón",
+        "option3" : "Gato",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras tiene la letra 'U' en medio?",
+        "option1" : "Gato",
+        "option2" : "Lupa",
+        "option3" : "Sol",
+        "correct" : "2" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras empieza con la letra 'L'?",
+        "option1" : "Flor",
+        "option2" : "León",
+        "option3" : "Perro",
+        "correct" : "2" 
+    },
+    {
+        "q" : "¿Cuál de estos objetos se escribe con la letra 'H'?",
+        "option1" : "Pelota",
+        "option2" : "Libro",
+        "option3" : "Hamaca",
+        "correct" : "1" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras termina con la letra 'A'?",
+        "option1" : "Gato",
+        "option2" : "Sol",
+        "option3" : "Casa",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras tiene la letra 'I' en medio?",
+        "option1" : "Sol",
+        "option2" : "Lápiz",
+        "option3" : "Rana",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estos animales se escribe con la letra 'E'?",
+        "option1" : "Pez",
+        "option2" : "León",
+        "option3" : "Elefante",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras se escribe con la letra 'F' al principio?",
+        "option1" : "Plátano",
+        "option2" : "Ratón",
+        "option3" : "Flor",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras tiene la letra 'L' al final?",
+        "option1" : "Gato",
+        "option2" : "Lupa",
+        "option3" : "Sol",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras empieza con la letra 'F'?",
+        "option1" : "Flor",
+        "option2" : "León",
+        "option3" : "Perro",
+        "correct" : "1" 
+    },
+    {
+        "q" : "¿Cuál de estos objetos se escribe con la letra 'G'?",
+        "option1" : "Pelota",
+        "option2" : "Golondrina",
+        "option3" : "Libro",
+        "correct" : "2" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras termina con la letra 'N'?",
+        "option1" : "Gato",
+        "option2" : "Sol",
+        "option3" : "Ratón",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras tiene la letra 'Z' al final?",
+        "option1" : "Sol",
+        "option2" : "Lápiz",
+        "option3" : "árbol",
+        "correct" : "2" 
+    },
+    {
+        "q" : "¿Cuál de estos animales se escribe con la letra 'D'?",
+        "option1" : "Pez",
+        "option2" : "León",
+        "option3" : "Delfín",
+        "correct" : "3" 
+    },
+    {
+        "q" : "¿Cuál de estas palabras se escribe con la letra 'R' al principio?",
+        "option1" : "Plátano",
+        "option2" : "Ratón",
+        "option3" : "Flor",
+        "correct" : "2" 
+    }
+]
