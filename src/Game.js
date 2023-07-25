@@ -4,6 +4,9 @@ import questionsData from './questions.json';
 
 // Define el juego
 export const DiceGame = {
+
+  name: 'dicegame', // Nombre del juego
+
   // Configura el inicio del juego
   setup: (ctx) => ({ 
     // Celdas del tablero
@@ -19,7 +22,11 @@ export const DiceGame = {
     help: null, //mensaje de respuesta correcta o incorrecta
   }),
 
-  // Define los movimientos permitidos fuera de las etapas de un turno
+  // Define el número de jugadores
+  minPlayers: 2,
+  maxPlayers: 2,
+
+  // Define los movimientos permitidos al inicio del turno
   moves: { rollDice },
 
   // Define las etapas de un turno 

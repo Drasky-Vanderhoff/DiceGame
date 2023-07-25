@@ -1,18 +1,18 @@
 import React from "react";
-import { render } from "react-dom";
-import { Client } from 'boardgame.io/react';
+//import { Client } from 'boardgame.io/react';
 import { DiceGame } from './Game';
 import { DiceGameBoard } from './Board';
-import { SocketIO  } from 'boardgame.io/multiplayer'
+import { MyLobby } from "./Lobby";
+//import { SocketIO  } from 'boardgame.io/multiplayer'
 
 // Define el cliente del juego
-const DiceGameClient = Client({ 
+/*const DiceGameClient = Client({ 
   game: DiceGame,
   board: DiceGameBoard,
   multiplayer: SocketIO({ server: 'localhost:8000' }), 
-});
+});*/
 
-class App extends React.Component {
+/*class App extends React.Component {
   state = { playerID: null };
   // Define lo que se muestra al ir a la página
   render() {
@@ -35,9 +35,18 @@ class App extends React.Component {
       </div>
     );
   }
-}
+}*/
 
-render(<App />, document.getElementById("root"));
+// ONLINE:
+const App = () => (
+  <div>
+    <MyLobby
+    gameServer={'http://localhost:8000'}
+    lobbyServer={'http://localhost:8000'}
+    gameComponents={[{game: DiceGame, board: DiceGameBoard}]}
+    />
+  </div>
+)
 
 
 export default App;

@@ -1,9 +1,9 @@
 const { Server, Origins } = require('boardgame.io/server');
 const { DiceGame } = require('./Game');
 
-const server = Server({
+const server = Server({ 
   games: [DiceGame],
-  origins: [Origins.LOCALHOST],
+  origins: [Origins.LOCALHOST] 
 });
 
 server.run(8000);
