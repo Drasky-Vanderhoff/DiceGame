@@ -18,11 +18,6 @@ export class MyLobby extends Lobby{
             .then(function(response) {return response});
     }
 
-    //actualiza la lista de juegos
-    handleRefreshMatches(event){
-        this._updateConnection();
-    }
-
     //maneja el ingreso a un juego
     handleJoinMatch(event, matchID, playerID){
         this._joinMatch('dicegame', matchID, playerID);
@@ -58,35 +53,11 @@ export class MyLobby extends Lobby{
         var matches_thead = [];
         var matches_th = [];
 
-        //estilos de las columnas de la tabla
-        const match_id_col_style = {
-            width:"150px",
-            textAlign: 'center',
-            padding: '3px'
-        }
-        const player_name_col_style = {
-            width:"150px",
-            textAlign: 'center',
-            padding: '3px'
-        }
-        const vs_col_style = {
-            width:"30px",
-            textAlign: 'center',
-            padding: '3px'
-        }
-        const button_col_style = {
-            width:"100px",
-            textAlign: 'center',
-            padding: '3px'
-        }
-
         //creación de la tabla
-        matches_th.push(<th style={match_id_col_style}>{'Match ID'}</th>);
-        matches_th.push(<th style={player_name_col_style}>{'Player 1'}</th>);
-        matches_th.push(<th style={vs_col_style}>{'vs.'}</th>);
-        matches_th.push(<th style={player_name_col_style}>{'Player 2'}</th>);
-        matches_th.push(<th style={button_col_style}><input type="button" value="New Match" onClick={(event) => this.handleNewMatch(event)}/></th>);
-        matches_th.push(<th style={button_col_style}><input type="button" value="Refresh" onClick={(event) => this.handleRefreshMatches(event)}/></th>);
+        matches_th.push(<th className='idCol'>{'Partida'}</th>);
+        matches_th.push(<th className='playerCol'>{'Jugador 1'}</th>);
+        matches_th.push(<th className='vsCol'>{'vs.'}</th>);
+        matches_th.push(<th className='playerCol'>{'Jugador 2'}</th>);
         matches_thead.push(<tr>{matches_th}</tr>);
 
         //creación de las filas de la tabla
@@ -100,34 +71,34 @@ export class MyLobby extends Lobby{
             var player2_name = (match.players.length > 1) ? match.players[1].name:undefined;
 
             //crea las filas de la tabla con los nombres de los jugadores
-            matches_row.push(<td style={match_id_col_style}>{match.matchID}</td>);
+            matches_row.push(<td className='idCol'>{match.matchID}</td>);
             if (player1_name !== undefined){
-                matches_row.push(<td style={player_name_col_style}>{player1_name}</td>);
+                matches_row.push(<td className='playerCol'>{player1_name}</td>);
             }
             else{
-                matches_row.push(<td style={player_name_col_style}><input type="button" value="Join" onClick={(event) => this.handleJoinMatch(event, match.matchID, "0")}/></td>);
+                matches_row.push(<td className='playerCol'><input className="button2"  type="button" value="Unirse" onClick={(event) => this.handleJoinMatch(event, match.matchID, "0")}/></td>);
             }
-            matches_row.push(<td style={vs_col_style}>{'vs.'}</td>);
+            matches_row.push(<td className='vsCol'>{'vs.'}</td>);
             if (player2_name !== undefined){
-                matches_row.push(<td style={player_name_col_style}>{player2_name}</td>);
+                matches_row.push(<td className='playerCol'>{player2_name}</td>);
             }
             else{
-                matches_row.push(<td style={player_name_col_style}><input type="button" value="Join" onClick={(event) => this.handleJoinMatch(event, match.matchID, "1")}/></td>);
+                matches_row.push(<td className='playerCol'><input className="button2" type="button" value="Unirse" onClick={(event) => this.handleJoinMatch(event, match.matchID, "1")}/></td>);
             }    
 
             //crea los botones de inicio y salida de juego
             if (player1_name === this.state.playerName || player2_name === this.state.playerName){
-                matches_row.push(<td style={button_col_style}><input type="button" value="Leave" onClick={(event) => this.handleLeaveMatch(event, match.matchID)}/></td>);
+                matches_row.push(<td className='buttonCol'><input className="button1" type="button" value="Salir" onClick={(event) => this.handleLeaveMatch(event, match.matchID)}/></td>);
             }
             else{
-                matches_row.push(<td style={button_col_style}></td>);
+                matches_row.push(<td className='buttonCol'></td>);
             }
             if((player1_name === this.state.playerName && player2_name !== undefined) || (player2_name === this.state.playerName && player1_name !== undefined)){
                 let playerID = this.state.playerName === player1_name ? '0':'1';
-                matches_row.push(<td style={button_col_style}><input type="button" value="Play" onClick={(event) => this.handleStartMatch(event, match.matchID, playerID)}/></td>);
+                matches_row.push(<td sclassName='buttonCol'><input className="button1" type="button" value="Jugar" onClick={(event) => this.handleStartMatch(event, match.matchID, playerID)}/></td>);
             }
             else{
-                matches_row.push(<td style={button_col_style}></td>);
+                matches_row.push(<td className='buttonCol'></td>);
             }
             matches_tbody.push(<tr>{matches_row}</tr>);
         }
@@ -137,16 +108,24 @@ export class MyLobby extends Lobby{
         if (this.state.phase === 'enter'){
             return (
                 <div>
-                    {'Enter name: '}
-                    <input type="text" value={this.state.playerName} onChange={(event) => this.handleChangeName(event)}/>
-                    <input type="button" value="Enter Lobby" onClick={(event) => this.handleEnterLobby(event)}/>
+                    <h1>Preguntas de Inglés</h1>
+                    <div className='enterLobby'>
+                        {'Tu nombre: '}
+                        <input type="text" value={this.state.playerName} onChange={(event) => this.handleChangeName(event)}/>
+                        <input className="button1" type="button" value="Entrar al Lobby" onClick={(event) => this.handleEnterLobby(event)}/>
+                    </div>
                 </div>
             );
         }
         else if (this.state.phase === 'list'){
             return (
                 <div>
-                    <input type="button" value="Exit Lobby" onClick={(event) => this.handleExitLobby(event)}/>
+                    <h1>Preguntas de Inglés</h1>
+                    <div className='buttons'>
+                        <input className='button1' type="button" value="🡸 Salir del Lobby" onClick={(event) => this.handleExitLobby(event)}/>
+                        <input className='button1' type="button" value="Nuevo Juego" onClick={(event) => this.handleNewMatch(event)}/>
+                    </div>
+                    <div className='listLobby'>
                     <br></br>
                     <table id="matches">
                         <thead>
@@ -156,6 +135,7 @@ export class MyLobby extends Lobby{
                             {matches_tbody}
                         </tbody>
                     </table>
+                    </div>
                 </div>
             );
         }
@@ -163,7 +143,6 @@ export class MyLobby extends Lobby{
             var board_element = React.createElement(this.state.runningMatch.app, {
                 matchID: this.state.runningMatch.matchID,
                 playerID: this.state.runningMatch.playerID,
-                playerName: this.state.runningMatch.playerName,
                 credentials: this.state.runningMatch.credentials
             });
             return (

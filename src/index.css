@@ -6,9 +6,89 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: url(https://cdn.pixabay.com/photo/2017/07/10/23/43/question-mark-2492009_1280.jpg);
+  color: white;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+
+.enterLobby, .listLobby, .boardText{
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 35%;
+  padding: 10px;
+  border-radius: 10px; 
+  margin-left: 20px;
+}
+
+.buttons{
+  margin-left: 20px;
+}
+
+input, button{
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.button1{
+  background-color: #feb916;
+}
+
+.button2{
+  border-color: rgb(127, 226, 243);
+  background-color: rgba(15,200,255,0.7)
+}
+
+.listLobby{
+  width: 45%;
+}
+
+.cell, .playerName {
+  border: 2px solid #000;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  line-height: 50px;
+  text-align: center;
+  background-color: rgba(225, 27, 247, 0.7);
+}
+
+.playerName{
+  background-color: rgba(15,200,255,0.7);
+}
+
+.boardText{
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 50%;
+}
+
+h1{
+  color: rgb(15,200,255);
+  padding-bottom: 20px;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.container h1{
+  text-align: center;
+}
+
+.buttonCol, .vsCol, .playerCol, .idCol{
+  width: 100px;
+  text-align: center;
+  padding: 3px;
+}
+
+.vsCol{
+  width: 30px;
+}
+
+.playerCol, .idCol{
+  width: 150px;
+}
+
+

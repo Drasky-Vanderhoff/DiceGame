@@ -16,18 +16,9 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
   if (ctx.gameover) {
     winner =
       ctx.gameover.winner !== undefined && (
-        <div id="winner">Ganador: Jugador {ctx.gameover.winner}</div>
+        <div id="winner">Ganador: {matchData[ctx.gameover.winner].name}</div>
       )
   }
-
-  //estilo de las celdas del tablero
-  const cellStyle = {
-    border: '1px solid #555',
-    width: '100px',
-    height: '100px',
-    lineHeight: '50px',
-    textAlign: 'center',
-  };
 
   //crea el tablero
   let tbody = [];
@@ -37,11 +28,12 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
       const id = 5 * i + j;
       cells.push(
         <td key={id}>
-          {G.cells[id]? (
-            <div style={cellStyle}>{G.cells[id]}</div>
-          ) : (
-            <div style={cellStyle} />
-          )}
+          {G.cells[id]?
+            <div className="playerName">{G.cells[id]}</div>
+            : (id === 0? <div className="cell">Salida</div> 
+            : (id === 24? <div className="cell">Llegada</div>
+            : <div className="cell">{id}</div>
+          ))}
         </td>
       );
     }
@@ -77,23 +69,24 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
     <div>
       <p>Pregunta: {currentQuestion.q}</p> 
       {G.currentQuestionIndex !== -1 && myOptions}
-      <p><button value={selectedOption} onClick={handleSubmit}>Responder pregunta</button></p>
+      <p><button className='button1' value={selectedOption} onClick={handleSubmit}>Responder pregunta</button></p>
     </div>
   )
 
   //devuelve toda la página que ve el jugador
   return (
     <div className='container'>
+      <h1>Preguntas de Inglés</h1>
       <div className='row'>
         <div className='col'>
           <table id="board">
             <tbody>{tbody}</tbody>
           </table> 
         </div> 
-        <div className='col'>
-          <p><button onClick={() => onClickDice()}>Tirar el dado</button>  resultado: {G.diceResult}</p>
+        <div className='col boardText'>
+          <p><button className='button1' onClick={() => onClickDice()}>Tirar el dado</button>  resultado: {G.diceResult}</p>
           {question}
-          <p>Turno del jugador {currentPlayerName}</p>
+          <p>Turno de {currentPlayerName}</p>
           <p>{G.help}</p>
           {winner}
         </div>
