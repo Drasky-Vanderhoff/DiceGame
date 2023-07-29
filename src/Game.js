@@ -8,7 +8,7 @@ export const DiceGame = {
   name: 'dicegame', // Nombre del juego
 
   // Configura el inicio del juego
-  setup: (ctx) => ({ 
+  setup: (ctx, matchData) => ({ 
     // Celdas del tablero
     cells: Array(25).fill(null),
     // Posición de los jugadores

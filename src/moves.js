@@ -8,10 +8,10 @@ export const rollDice = ({ G, random }) => {
 };
 
 //Se ejecuta cuando se responde una pregunta
-export const answerQ = ({ G, ctx, playerID }, selectedOption) => {
+export const answerQ = ({ G, ctx }, selectedOption, currentPlayername) => {
     //si la respuesta es correcta, mueve al jugador
     if (G.questions[G.currentQuestionIndex].correct === selectedOption){
-        movePlayer(G, ctx, playerID);
+        movePlayer(G, ctx, currentPlayername);
         G.help = 'Respuesta correcta!';
     }
     //si no, no mueve al jugador

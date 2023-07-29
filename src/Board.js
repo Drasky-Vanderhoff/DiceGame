@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 
-export function DiceGameBoard({ ctx, G, moves }) {
+export function DiceGameBoard({ ctx, G, moves, matchData }) {
   const [selectedOption, setSelectedOption] = useState('');
 
   //llama a la función rollDice del archivo moves.js
   const onClickDice = () => moves.rollDice();
   const currentQuestion = G.currentQuestionIndex >= 0 ? G.questions[G.currentQuestionIndex] : '';
+
+  //obtiene el nombre del jugador actual
+  const currentPlayerName = matchData[ctx.currentPlayer].name;
+
   
   //si hay un ganador, muestra el mensaje
   let winner = '';
@@ -52,7 +56,7 @@ export function DiceGameBoard({ ctx, G, moves }) {
   //maneja el submit de la respuesta
   const handleSubmit = (event) => {
     event.preventDefault();
-    moves.answerQ(event.target.value);
+    moves.answerQ(event.target.value, currentPlayerName);
     setSelectedOption('');
   };
 
@@ -89,7 +93,7 @@ export function DiceGameBoard({ ctx, G, moves }) {
         <div className='col'>
           <p><button onClick={() => onClickDice()}>Tirar el dado</button>  resultado: {G.diceResult}</p>
           {question}
-          {ctx.currentPlayer && <p>Turno del jugador {ctx.currentPlayer}</p>}
+          <p>Turno del jugador {currentPlayerName}</p>
           <p>{G.help}</p>
           {winner}
         </div>

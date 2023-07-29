@@ -45,7 +45,7 @@ export class MyLobby extends Lobby{
 
     //maneja el inicio de un juego
     handleStartMatch(event, matchID, playerID){
-        this._startMatch('dicegame', {numPlayers: 2, matchID: matchID, playerID: playerID});
+        this._startMatch('dicegame', {numPlayers: 2, matchID, playerID});
     }
 
     //maneja la salida de un juego
@@ -163,6 +163,7 @@ export class MyLobby extends Lobby{
             var board_element = React.createElement(this.state.runningMatch.app, {
                 matchID: this.state.runningMatch.matchID,
                 playerID: this.state.runningMatch.playerID,
+                playerName: this.state.runningMatch.playerName,
                 credentials: this.state.runningMatch.credentials
             });
             return (

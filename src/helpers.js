@@ -6,7 +6,7 @@ export function IsVictory(cells) {
 };
 
 //mueve al jugador tantos casilleros como haya indicado el dado
-export function movePlayer(G, ctx, playerID){
+export function movePlayer(G, ctx, currentPlayername){
   let actualPosition = G.players[ctx.currentPlayer].position
   G.cells[actualPosition] = null; //dejo libre la celda donde estaba el jugador
   
@@ -16,5 +16,5 @@ export function movePlayer(G, ctx, playerID){
   
   if (G.cells[newPosition] !== null) //si la celda estaba ocupada, el que estaba vuelve a 0
     G.players[G.cells[newPosition]].position = 0;
-  G.cells[newPosition] = playerID; //ocupo la celda con el jugador actual
+  G.cells[newPosition] = currentPlayername; //ocupo la celda con el jugador actual
 }
