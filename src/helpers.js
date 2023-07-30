@@ -2,7 +2,7 @@
 
 // Devuelve true si hay un jugador en la última celda del tablero
 export function IsVictory(cells) {
-      return cells[24] !== null;
+      return cells[29] !== null;
 };
 
 //mueve al jugador tantos casilleros como haya indicado el dado
@@ -11,7 +11,7 @@ export function movePlayer(G, ctx, currentPlayername){
   G.cells[actualPosition] = null; //dejo libre la celda donde estaba el jugador
   
   //le doy una nueva posición que no supere el máximo
-  let newPosition = Math.min(actualPosition += G.diceResult, 24);
+  let newPosition = Math.min(actualPosition += G.diceResult, 29);
   G.players[ctx.currentPlayer].position = newPosition;
   
   if (G.cells[newPosition] !== null) //si la celda estaba ocupada, el que estaba vuelve a 0

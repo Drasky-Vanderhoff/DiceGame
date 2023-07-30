@@ -16,17 +16,17 @@ code {
 }
 
 
-
-.enterLobby, .listLobby, .boardText{
+.enterLobby, .listLobby, .boardText, .help{
   background-color: rgba(255, 255, 255, 0.3);
-  width: 35%;
+  width: 40%;
   padding: 10px;
   border-radius: 10px; 
+  margin-bottom: 10px;
   margin-left: 20px;
 }
 
 .buttons{
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 input, button{
@@ -63,7 +63,11 @@ input, button{
 
 .boardText{
   background-color: rgba(0, 0, 0, 0.7);
-  height: 50%;
+  width: 100%;
+}
+
+.help{
+  width: 100%;
 }
 
 h1{
@@ -91,4 +95,8 @@ h1{
   width: 150px;
 }
 
+.instruction{
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-left: 40px;
+}
 

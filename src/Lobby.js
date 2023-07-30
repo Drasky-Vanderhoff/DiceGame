@@ -108,18 +108,24 @@ export class MyLobby extends Lobby{
         if (this.state.phase === 'enter'){
             return (
                 <div>
-                    <h1>Preguntas de Inglés</h1>
-                    <div className='enterLobby'>
-                        {'Tu nombre: '}
-                        <input type="text" value={this.state.playerName} onChange={(event) => this.handleChangeName(event)}/>
-                        <input className="button1" type="button" value="Entrar al Lobby" onClick={(event) => this.handleEnterLobby(event)}/>
+                    <div>
+                        <h1>Preguntas de Inglés</h1>
+                        <div className='enterLobby'>
+                            {'Tu nombre: '}
+                            <input type="text" value={this.state.playerName} onChange={(event) => this.handleChangeName(event)}/>
+                            <input className="button1" type="button" value="Entrar al Lobby" onClick={(event) => this.handleEnterLobby(event)}/>
+                        </div>
+                    </div>
+                    <div className="enterLobby">
+                        <h2>¿Cómo Empezar?</h2>
+                        <p>Ingresa tu nombre y presiona "Entrar al Lobby".</p>
                     </div>
                 </div>
             );
         }
         else if (this.state.phase === 'list'){
             return (
-                <div>
+                <div className='row'>
                     <h1>Preguntas de Inglés</h1>
                     <div className='buttons'>
                         <input className='button1' type="button" value="🡸 Salir del Lobby" onClick={(event) => this.handleExitLobby(event)}/>
@@ -135,6 +141,14 @@ export class MyLobby extends Lobby{
                             {matches_tbody}
                         </tbody>
                     </table>
+                    </div>
+                    <div className="listLobby instruction">
+                        <h2>¿Cómo entrar a una partida?</h2>
+                        <p>Puedes sumarte a una partida existente presionando "Unirse". </p>
+                        <p>Cuando la partida tenga 2 jugadores podrás comenzar el juego presionando "Jugar".</p>
+                        <p>Para salir de la partida puedes presionar "Salir"</p>
+                        <p>Si quieres crear una partida nueva puedes presionar "Nuevo Juego".</p>
+                        <p>Para salir del lobby puedes presionar "Salir del Lobby".</p>
                     </div>
                 </div>
             );

@@ -22,7 +22,7 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
 
   //crea el tablero
   let tbody = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 6; i++) {
     let cells = [];
     for (let j = 0; j < 5; j++) {
       const id = 5 * i + j;
@@ -31,7 +31,7 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
           {G.cells[id]?
             <div className="playerName">{G.cells[id]}</div>
             : (id === 0? <div className="cell">Salida</div> 
-            : (id === 24? <div className="cell">Llegada</div>
+            : (id === 29? <div className="cell">Llegada</div>
             : <div className="cell">{id}</div>
           ))}
         </td>
@@ -55,11 +55,11 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
   //crea las opciones de la pregunta actual
   let myOptions = (
     <div>
-      <input type="radio" value='1' name="option" checked={selectedOption === '1'} onChange={handleOptionChange}/>
+      <input id="op1" type="radio" value='1' name="option" checked={selectedOption === '1'} onChange={handleOptionChange}/>
       <label for="op1">{currentQuestion.option1}</label><br/>
-      <input type="radio" value='2' name="option" checked={selectedOption === '2'} onChange={handleOptionChange} />
+      <input id="op2" type="radio" value='2' name="option" checked={selectedOption === '2'} onChange={handleOptionChange} />
       <label for="op2">{currentQuestion.option2}</label><br/>
-      <input type="radio" value='3' name="option" checked={selectedOption === '3'} onChange={handleOptionChange} />
+      <input id="op3" type="radio" value='3' name="option" checked={selectedOption === '3'} onChange={handleOptionChange} />
       <label for="op3">{currentQuestion.option3}</label><br/><br/>
     </div>
   )
@@ -83,12 +83,26 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
             <tbody>{tbody}</tbody>
           </table> 
         </div> 
-        <div className='col boardText'>
-          <p><button className='button1' onClick={() => onClickDice()}>Tirar el dado</button>  resultado: {G.diceResult}</p>
-          {question}
-          <p>Turno de {currentPlayerName}</p>
-          <p>{G.help}</p>
-          {winner}
+        <div className='col'>
+          <div className='boardText'>
+            <p><button className='button1' onClick={() => onClickDice()}>Tirar el dado</button>  resultado: {G.diceResult}</p>
+            {question}
+            <p>Turno de {currentPlayerName}</p>
+            <p>{G.help}</p>
+            {winner}
+          </div>
+          <div className="help">
+              <h2>¿Cómo jugar?</h2>
+              <p>
+                Los jugadores inician el juego en la casilla "Salida".<br/>
+                Durante su turno cada jugador debe tirar el dado y responder la pregunta que se le presenta.<br/>
+                Si la respuesta es correcta, el jugador avanza el número de casillas indicado por el dado.<br/>
+                Si la respuesta es incorrecta, el jugador no avanza.<br/>
+                Si el jugador cae en una casilla ocupada por otro jugador, el que estaba en la casilla vuelve al punto de salida.<br/> 
+                El juego termina cuando un jugador llega a la casilla "Llegada".<br/>
+                Si se respondieron todas las preguntas y nungún jugador llegó a la última casilla el juego termina en empate.
+              </p>
+          </div>
         </div>
       </div>
     </div>

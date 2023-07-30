@@ -10,7 +10,7 @@ export const DiceGame = {
   // Configura el inicio del juego
   setup: (ctx, matchData) => ({ 
     // Celdas del tablero
-    cells: Array(25).fill(null),
+    cells: Array(30).fill(null),
     // Posición de los jugadores
     players: {
       '0': { position: 0 },
