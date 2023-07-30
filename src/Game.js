@@ -18,6 +18,7 @@ export const DiceGame = {
     }, 
     diceResult: null, // Resultado del dado
     questions: questionsData, // Cargar las preguntas desde el archivo JSON
+    playedQuestions: Array(20).fill(false), // Preguntas ya jugadas
     currentQuestionIndex: -1, // Índice de la pregunta actual (-1 indica que no se muestra ninguna pregunta)
     help: null, //mensaje de respuesta correcta o incorrecta
   }),

@@ -15,6 +15,17 @@ export function movePlayer(G, ctx, currentPlayername){
   G.players[ctx.currentPlayer].position = newPosition;
   
   if (G.cells[newPosition] !== null) //si la celda estaba ocupada, el que estaba vuelve a 0
-    G.players[G.cells[newPosition]].position = 0;
+    //para eso me fijo cual es el jugador actual y muevo al otro
+    ctx.currentPlayer === 0? G.players[1].position = 0 : G.players[1].position = 0;
   G.cells[newPosition] = currentPlayername; //ocupo la celda con el jugador actual
+}
+
+//Busca un apregunta que no se haya jugado
+export function getQuestion(G, random){
+  let index = random.D20() - 1;
+  while (G.playedQuestions[index]) //busca una pregunta que no haya sido jugada
+      index = index === 19? 0 : index + 1;
+  G.currentQuestionIndex = index;
+  G.playedQuestions[index] = true;
+  G.help = null; //borra el mensaje de respuesta correcta o incorrecta
 }

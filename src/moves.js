@@ -1,10 +1,9 @@
-import { movePlayer } from "./helpers";
+import { movePlayer, getQuestion } from "./helpers";
 
 //Se ejecuta cuando se tira el dado
 export const rollDice = ({ G, random }) => {
     G.diceResult = random.D6(); //resultado de tirar el dado;
-    G.currentQuestionIndex = random.D20() - 1; //índice de la pregunta a mostrar (aún no control repetidas)
-    G.help = null; //borra el mensaje de respuesta correcta o incorrecta
+    getQuestion(G, random);
 };
 
 //Se ejecuta cuando se responde una pregunta
