@@ -1,5 +1,5 @@
 import { rollDice, answerQ } from "./moves";
-import { IsVictory } from "./helpers";
+import { IsComplete, IsVictory } from "./helpers";
 import questionsData from './questions.json';
 
 // Define el juego
@@ -45,6 +45,9 @@ export const DiceGame = {
   endIf: ({ G, ctx }) => {
     if (IsVictory(G.cells)) {
       return { winner: ctx.currentPlayer }; // Retorna el jugador ganador
+    }
+    if (IsComplete(G)) {
+      return { complete: true };
     }
   },
 }

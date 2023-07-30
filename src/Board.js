@@ -13,10 +13,15 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
   
   //si hay un ganador, muestra el mensaje
   let winner = '';
+  let complete = false;
   if (ctx.gameover) {
     winner =
       ctx.gameover.winner !== undefined && (
         <div id="winner">Ganador: {matchData[ctx.gameover.winner].name}</div>
+      )
+    complete = 
+      ctx.gameover.complete === true && (
+        <div id="complete">¡Emplate!</div>
       )
   }
 
@@ -90,6 +95,7 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
             <p>Turno de {currentPlayerName}</p>
             <p>{G.help}</p>
             {winner}
+            {complete}
           </div>
           <div className="help">
               <h2>¿Cómo jugar?</h2>

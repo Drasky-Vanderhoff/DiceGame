@@ -5,6 +5,17 @@ export function IsVictory(cells) {
       return cells[29] !== null;
 };
 
+export function IsComplete(G) {
+  let complete = true;
+  for (let i = 0; i < 20; i++) {
+    if (!G.playedQuestions[i]) {
+      complete = false;
+      break;
+    }
+  }
+  return (complete);
+}
+
 //mueve al jugador tantos casilleros como haya indicado el dado
 export function movePlayer(G, ctx, currentPlayername){
   let actualPosition = G.players[ctx.currentPlayer].position
@@ -26,6 +37,5 @@ export function getQuestion(G, random){
   while (G.playedQuestions[index]) //busca una pregunta que no haya sido jugada
       index = index === 19? 0 : index + 1;
   G.currentQuestionIndex = index;
-  G.playedQuestions[index] = true;
   G.help = null; //borra el mensaje de respuesta correcta o incorrecta
 }
