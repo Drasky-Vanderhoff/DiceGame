@@ -1,10 +1,10 @@
 # Juego de preguntas y respuestas sobre palabras en inglés
 
-##¿Cómo Empezar?
+## ¿Cómo Empezar?
 
 Ingresa tu nombre y presiona "Entrar al Lobby".
 
-##¿Cómo entrar a una partida?
+## ¿Cómo entrar a una partida?
 
 Puedes sumarte a una partida existente presionando "Unirse".
 Cuando la partida tenga 2 jugadores podrás comenzar el juego presionando "Jugar".
@@ -12,7 +12,7 @@ Para salir de la partida puedes presionar "Salir"
 Si quieres crear una partida nueva puedes presionar "Nuevo Juego".
 Para salir del lobby puedes presionar "Salir del Lobby".
 
-##¿Cómo jugar?
+## ¿Cómo jugar?
 
 Los jugadores inician el juego en la casilla "Salida".
 Durante su turno cada jugador debe tirar el dado y responder la pregunta que se le presenta.
