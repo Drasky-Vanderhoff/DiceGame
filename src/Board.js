@@ -36,7 +36,7 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
           {G.cells[id]?
             <div className="playerName">{G.cells[id]}</div>
             : (id === 0? <div className="cell">Salida</div> 
-            : (id === 29? <div className="cell">Llegada</div>
+            : (id === 24? <div className="cell">Llegada</div>
             : <div className="cell">{id}</div>
           ))}
         </td>
