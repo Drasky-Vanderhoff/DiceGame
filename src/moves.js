@@ -16,8 +16,9 @@ export const answerQ = ({ G, ctx }, selectedOption, currentPlayername) => {
     //si no, no mueve al jugador
     else
         G.help = 'Respuesta incorrecta!';
-    //Borra la pregunta y el resultado del dado de la pantalla
+    //marca la pregunta como jugada
     G.playedQuestions[G.currentQuestionIndex] = true;
+    //Borra la pregunta y el resultado del dado de la pantalla
     G.currentQuestionIndex = -1;
     G.diceResult = null;
 };

@@ -27,7 +27,7 @@ export function DiceGameBoard({ ctx, G, moves, matchData }) {
 
   //crea el tablero
   let tbody = [];
-  for (let i = 0; i < 6; i++) {
+  for (let i = 0; i < 5; i++) {
     let cells = [];
     for (let j = 0; j < 5; j++) {
       const id = 5 * i + j;
