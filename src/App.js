@@ -3,16 +3,16 @@ import { DiceGame } from './Game';
 import { DiceGameBoard } from './Board';
 import { MyLobby } from "./Lobby";
 
-// ONLINE:
+const { protocol, hostname, port } = window.location;
+const server = `${protocol}//${hostname}/.netlify/functions/game_server`;
+
 const App = () => (
-  <div>
-    <MyLobby
-    gameServer={'http://localhost:8000'}
-    lobbyServer={'http://localhost:8000'}
-    gameComponents={[{game: DiceGame, board: DiceGameBoard}]}
-    />
-  </div>
-)
+  <MyLobby
+    gameServer={server}
+    lobbyServer={server}
+    gameComponents={[{ game: DiceGame, board: DiceGameBoard }]}
+  />
+);
 
 
 export default App;

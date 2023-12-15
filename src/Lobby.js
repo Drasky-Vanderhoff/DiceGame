@@ -12,10 +12,11 @@ export class MyLobby extends Lobby{
     //maneja la creación de un nuevo juego
     //(usando la api como se pide) 
     handleNewMatch(event){
-        //this._createMatch('dicegame', 2);
-        fetch('http://localhost:8000/games/dicegame/create', {
-            method: 'POST'})
-            .then(function(response) {return response});
+        fetch(`${this.props.lobbyServer}/games/dicegame/create`, {
+          method: "POST",
+        }).then(function (response) {
+          return response;
+        });
     }
 
     //maneja el ingreso a un juego
